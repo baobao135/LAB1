@@ -47,6 +47,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -83,18 +84,61 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int counter=1;
   while (1)
   {
-    /* USER CODE END WHILE */
+      /* USER CODE END WHILE */
+	  if(counter==1){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+  	  }
+  	  if(counter==2){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+  	  }
+  	  if(counter==3){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+  	  }
+  	  if(counter==4){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
+  	  }
+  	  if(counter==5){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
+  	  }
+  	  if(counter==6){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
+  	  }
+  	  if(counter==7){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
+  	  }
+  	  if(counter==8){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
+  	  }
+  	  if(counter==9){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_12);
+  	  }
+  	  if(counter==10){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_13);
+  	  }
+  	  if(counter==11){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_14);
+  	  }
+  	  if(counter==12){
+  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_15);
+  	  }
+  	  if(counter>=12){
+  		  counter=0;
+  	  }
+  	  counter++;
+  	  HAL_Delay(300);
 
-    /* USER CODE BEGIN 3 */
-  }
+      /* USER CODE BEGIN 3 */
+    }
   /* USER CODE END 3 */
 }
 
@@ -131,6 +175,36 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, Led_1_Pin|Led_2_Pin|Led_3_Pin|Led_4_Pin
+                          |Led_5_Pin|Led_6_Pin|Led_7_Pin|Led_8_Pin
+                          |Led_9_Pin|Led_10_Pin|Led_11_Pin|Led_12_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : Led_1_Pin Led_2_Pin Led_3_Pin Led_4_Pin
+                           Led_5_Pin Led_6_Pin Led_7_Pin Led_8_Pin
+                           Led_9_Pin Led_10_Pin Led_11_Pin Led_12_Pin */
+  GPIO_InitStruct.Pin = Led_1_Pin|Led_2_Pin|Led_3_Pin|Led_4_Pin
+                          |Led_5_Pin|Led_6_Pin|Led_7_Pin|Led_8_Pin
+                          |Led_9_Pin|Led_10_Pin|Led_11_Pin|Led_12_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */
