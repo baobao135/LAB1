@@ -180,12 +180,58 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int h_count=12;
+  int m_count=0;
+  int s_count=0;
+  int flag=0;
   while (1)
   {
-      /* USER CODE END WHILE */
+    /* USER CODE END WHILE */
+	  if(h_count!=(s_count/5)-1 || m_count!=(s_count/5)-1){
+	  		  clearNumberOnClock((s_count/5)-1);
+	  		  if((s_count/5)-1==0){
+				  clearNumberOnClock(12);
+			  }
+	  		  if(flag==1){
+	  			  clearNumberOnClock(11);
+	  			  flag=0;
+	  		  }
+	  	  }
+	  	  if(h_count!=(m_count/5)-1){
+	  		  clearNumberOnClock((m_count/5)-1);
+	  		  if((m_count/5)-1==0){
+				  clearNumberOnClock(12);
+			  }
+	  		  if(flag==1){
+	  			  clearNumberOnClock(11);
+	  			  flag=0;
+	  		  }
+	  	  }
+	  	  setNumberOnClock(h_count);
+	  	  setNumberOnClock(m_count/5);
+	  	  setNumberOnClock(s_count/5);
+	  	  if(m_count/5==0) setNumberOnClock(12);
+	  	  if(s_count/5==0) setNumberOnClock(12);
 
-      /* USER CODE BEGIN 3 */
-    }
+	  	  s_count++;
+
+	  	  if(s_count>=60){
+	  		  m_count++;
+	  		  s_count=0;
+	  		  flag=1;
+	  	  }
+	  	  if(m_count>=60){
+	  		  h_count++;
+	  		  m_count=0;
+	  		  flag=1;
+	  	  }
+	  	  if(h_count>12){
+	  		  h_count=1;
+	  	  }
+
+	  	  HAL_Delay(20);
+    /* USER CODE BEGIN 3 */
+  }
   /* USER CODE END 3 */
 }
 
