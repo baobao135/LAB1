@@ -54,7 +54,20 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void clearAllClock(){
+	HAL_GPIO_WritePin(Led_1_GPIO_Port, Led_1_Pin, RESET);
+	HAL_GPIO_WritePin(Led_2_GPIO_Port, Led_2_Pin, RESET);
+	HAL_GPIO_WritePin(Led_3_GPIO_Port, Led_3_Pin, RESET);
+	HAL_GPIO_WritePin(Led_4_GPIO_Port, Led_4_Pin, RESET);
+	HAL_GPIO_WritePin(Led_5_GPIO_Port, Led_5_Pin, RESET);
+	HAL_GPIO_WritePin(Led_6_GPIO_Port, Led_6_Pin, RESET);
+	HAL_GPIO_WritePin(Led_7_GPIO_Port, Led_7_Pin, RESET);
+	HAL_GPIO_WritePin(Led_8_GPIO_Port, Led_8_Pin, RESET);
+	HAL_GPIO_WritePin(Led_9_GPIO_Port, Led_9_Pin, RESET);
+	HAL_GPIO_WritePin(Led_10_GPIO_Port, Led_10_Pin, RESET);
+	HAL_GPIO_WritePin(Led_11_GPIO_Port, Led_11_Pin, RESET);
+	HAL_GPIO_WritePin(Led_12_GPIO_Port, Led_12_Pin, RESET);
+}
 /* USER CODE END 0 */
 
 /**
@@ -91,51 +104,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int counter=1;
   while (1)
   {
       /* USER CODE END WHILE */
-	  if(counter==1){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
-  	  }
-  	  if(counter==2){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-  	  }
-  	  if(counter==3){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-  	  }
-  	  if(counter==4){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-  	  }
-  	  if(counter==5){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
-  	  }
-  	  if(counter==6){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
-  	  }
-  	  if(counter==7){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
-  	  }
-  	  if(counter==8){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
-  	  }
-  	  if(counter==9){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_12);
-  	  }
-  	  if(counter==10){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_13);
-  	  }
-  	  if(counter==11){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_14);
-  	  }
-  	  if(counter==12){
-  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_15);
-  	  }
-  	  if(counter>=12){
-  		  counter=0;
-  	  }
-  	  counter++;
-  	  HAL_Delay(300);
 
       /* USER CODE BEGIN 3 */
     }
