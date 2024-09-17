@@ -68,6 +68,44 @@ void clearAllClock(){
 	HAL_GPIO_WritePin(Led_11_GPIO_Port, Led_11_Pin, RESET);
 	HAL_GPIO_WritePin(Led_12_GPIO_Port, Led_12_Pin, RESET);
 }
+void setNumberOnClock(int num){
+	if(num==1){
+		HAL_GPIO_WritePin(Led_1_GPIO_Port, Led_1_Pin, SET);
+	}
+	if(num==2){
+		HAL_GPIO_WritePin(Led_2_GPIO_Port, Led_2_Pin, SET);
+	}
+	if(num==3){
+		HAL_GPIO_WritePin(Led_3_GPIO_Port, Led_3_Pin, SET);
+	}
+	if(num==4){
+		HAL_GPIO_WritePin(Led_4_GPIO_Port, Led_4_Pin, SET);
+	}
+	if(num==5){
+		HAL_GPIO_WritePin(Led_5_GPIO_Port, Led_5_Pin, SET);
+	}
+	if(num==6){
+		HAL_GPIO_WritePin(Led_6_GPIO_Port, Led_6_Pin, SET);
+	}
+	if(num==7){
+		HAL_GPIO_WritePin(Led_7_GPIO_Port, Led_7_Pin, SET);
+	}
+	if(num==8){
+		HAL_GPIO_WritePin(Led_8_GPIO_Port, Led_8_Pin, SET);
+	}
+	if(num==9){
+		HAL_GPIO_WritePin(Led_9_GPIO_Port, Led_9_Pin, SET);
+	}
+	if(num==10){
+		HAL_GPIO_WritePin(Led_10_GPIO_Port, Led_10_Pin, SET);
+	}
+	if(num==11){
+		HAL_GPIO_WritePin(Led_11_GPIO_Port, Led_11_Pin, SET);
+	}
+	if(num==12){
+		HAL_GPIO_WritePin(Led_12_GPIO_Port, Led_12_Pin, SET);
+	}
+}
 /* USER CODE END 0 */
 
 /**
